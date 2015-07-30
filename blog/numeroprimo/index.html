@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Lógica de Programação</title>
+	<link rel="stylesheet" href="../libs/bootstrap/css/bootstrap.css">
+	<script type="text/javascript" src="../libs/jquery/jquery.js"></script>
+
+	<script type="text/javascript" src="../libs//bootstrap/js/bootstrap.min.js"></script>
+	<style type="text/css" media="screen">
+		.container{
+			width: 50%;
+			margin-left: auto;
+			margin-right: auto; 
+			margin-top: 20px;
+		}
+		table{ 
+			width: 100%;
+		}
+		td{
+			padding: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h3>Calular os números primos de uma sequência</h3>
+		<table border="0">
+			<tr>
+				<td>
+					<input type="text" class="form-control itens-form" id="txtnum1" name="txtNum1" placeholder="Digite um número inicial" >
+				</td>
+				<td>
+					<input type="text" class="form-control itens-form" id="txtnum2" name="txtNum2" placeholder="Digite um número final" >
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<input type="button" id="btnCalcular" name="btnCalcular" value="Calcular" class="btn btn-large btn-block btn-primary">
+				</td>
+			</tr>
+		</table>
+		<div>
+			<span id="mostra"></span>
+		</div>
+		
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" role="dialog">
+		    <div class="modal-dialog">
+			    <!-- Modal content-->
+			    <div class="modal-content">
+			        <div class="modal-header">
+			          <button type="button" class="close" data-dismiss="modal">&times;</button>
+			          <h3 class="modal-title"><span >Atenção</span></h3>
+			        </div>
+			        <div class="modal-body" >
+			        	<span id="modalMessage"  class="alert alert-danger"></span>
+			        </div>
+			        <div class="modal-footer">
+			        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			        </div>
+		    	</div>
+		    </div>
+		</div>
+  
+	</div>
+
+</body>
+<script src="script/script.js" type="text/javascript" charset="utf-8" async defer></script>
+</html>
