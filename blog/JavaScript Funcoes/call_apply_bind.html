@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	function Personagem (nomePersonagem, nomeReal) {
+		this.nomePersonagem =  nomePersonagem;
+		this.nomeReal = nomeReal;
+
+		return this;
+	}
+
+	function Heroi(nomePersonagem, nomeReal){
+		Personagem.call(this, nomePersonagem, nomeReal);
+		this.categoria = "herói";
+	}
+
+	function Vilao (nomePersonagem, nomeReal) {
+		Personagem.call(this, nomePersonagem, nomeReal);
+		this.categoria = "vilão";
+	}
+
+	Heroi.prototype = Object.create(Personagem.prototype);
+	Vilao.prototype = Object.create(Personagem.prototype);
+
+	var spider = new Heroi('Spiderman','Peter Parker');
+	var venon = new Vilao('Venon','Eddie Brock');
+	var octpus = new Vilao('Doutor Octopus','Otto Gunther Octavius');
+
+	console.log(spider);
+	console.log(venon);
+	console.log(octpus);
+
+
+	var personagens = [
+	  	{ nomePersonagem  : spider.nomePersonagem, nomeReal : spider.nomeReal},
+	  	{ nomePersonagem : venon.nomePersonagem, nomeReal : venon.nomeReal},
+	  	{ nomePersonagem : octpus.nomePersonagem, nomeReal : octpus.nomeReal}
+	];
+
+	for (var i = 0; i < personagens.length; i++) {
+	  	(function(i) {
+	    	this.print = function() {
+	      		console.log(JSON.stringify(this) + ' - ' + i + ' ' + this.nomePersonagem 
+	      			+ ': ' + this.nomeReal);
+	    	}
+	   	 	this.print();
+	  	}).call(personagens[i], i);
+	}
+
+
+	var myArray = ['Superman', 'Clark Kent' ];
+	function Fodao (arr) {
+		Personagem.apply(this, arr);
+		this.categoria = "Suuuuuuuuuuper Foda";
+	}
+
+	Fodao.prototype = Object.create(Personagem.prototype);
+	var superman = new Fodao(myArray);
+
+	console.log(JSON.stringify(superman));
+	
+
+
+	this.nome = 'Logan'; 
+	var wolverine = {
+	  	nome: 'Arma X',
+	 	getNome: function() { return this.nome; }
+	};
+
+	console.log(wolverine.getNome()); 
+
+	var getNome = wolverine.getNome;
+	console.log(getNome()); 
+	var boundGetNome = getNome.bind(wolverine);
+	console.log(boundGetNome()); 
+	</script>
+</html>
