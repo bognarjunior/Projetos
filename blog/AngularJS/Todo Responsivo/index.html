@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html ng-app="todoApp">
+<head>
+    <title> Todo S2 IT</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="js/todo.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body ng-controller="TodoListController as todoList">
+    <header id="header" >
+        <div class="centro">
+            <img src="img/logo.png" alt="Logo S2 IT" id="logos2">
+        </div>
+        
+        <hr>
+    </header><!-- /header -->
+    <div class="container" > 
+        <div class="head-left">
+            <input type="text" ng-model="search" placeholder="Search....">
+        </div> 
+        <div class="head-right">
+            <button type="button" class="button-grey button-smart" data-toggle="modal" data-target="#formModal" 
+            ng-click="todoList.clear()">ADD</button>
+        </div>
+        <div class="body-table">
+            <div class="body-smart">
+                <div class="total-list">
+                    <span ng-show="todoFiltred.length > 0"> Total {{todoFiltred.length}} itens  </span>
+                    <span ng-show="todoFiltred.length <= 0"> No Results </span>
+                </div>
+                <div ng-repeat="todo in todoFiltred = (todoList.todos | filter:search)">
+                    <div class="head-blue table-left">
+                        <div class="row-padding">Done?</div>
+                        <div class="row-padding">Name</div>
+                        <div class="row-padding">Description</div>
+                        <div class="row-padding">Actions</div>
+                    </div>
+                    <div class="table-right">
+                        <div class="row-table row-padding"><input type="checkbox" ng-model="todo.done"></div>
+                        <div class="row-table row-padding">{{todo.name}}</div>
+                        <div class="row-table row-padding">{{todo.description}}</div>
+                        <div class="row-table row-padding" ng-if="todoList.todos.length > 0">
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true" 
+                            data-toggle="modal" data-target="#formModal" data-whatever="@fat" ng-click="todoList.setEdit(todo)"></span>
+                            <span class="glyphicon glyphicon-trash" aria-hidden="true" 
+                            data-toggle="modal" data-target="#formModal" data-whatever="@fat" ng-click="todoList.setDelete(todo)"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="rodape">
+                    <button type="button" class="button-grey button-smart" data-toggle="modal" data-target="#formModal" 
+                    data-whatever="@mdo" ng-click="todoList.clear()">ADD NEW TASK</button>
+                </div> 
+                <br/>
+                <br/>
+            </div>
+            <div class="body-desk"> 
+                <table class="table table-striped">
+                    <thead>
+                        <tr class="head-blue">
+                            <th>Done?</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="todo in todoFiltred = (todoList.todos | filter:search)">
+                            <td><input type="checkbox" ng-model="todo.done"></td>
+                            <td>{{todo.name}}</td>
+                            <td>{{todo.description}}</td>
+                            <td ng-if="todoList.todos.length > 0">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true" 
+                                data-toggle="modal" data-target="#formModal" data-whatever="@fat" ng-click="todoList.setEdit(todo)"></span>
+                                <span class="glyphicon glyphicon-trash" aria-hidden="true" 
+                                data-toggle="modal" data-target="#formModal" data-whatever="@fat" ng-click="todoList.setDelete(todo)"></span>
+                            </td>
+                        </tr>
+                        <tr ng-show="todoFiltred.length > 0">
+                            <td colspan="3" class="footer-grey"></td>
+                            <td class="footer-grey" >
+                                <span ng-show="todoFiltred.length > 0"> Total {{todoFiltred.length}} itens  </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="no-search">
+                    <span ng-show="todoFiltred.length <= 0"> No Results </span>
+                </div>
+            </div>
+        </div>
+        <div class="page-footer">
+            <div class="img-footer">
+                <img src="img/icons/facebook.png" alt="Facebook" class="icon-image">
+                <img src="img/icons/linkedin.png" alt="Linkedin" class="icon-image">
+                <img src="img/icons/twitter.png" alt="Twitter" class="icon-image">
+                <img src="img/icons/google_plus.png" alt="Google Plus" class="icon-image">
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade width-modal" id="formModal" tabindex="-1" role="dialog" aria-labelledby="formModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header head-blue">
+                        <h2 class="modal-title" id="formModalLabel" ng-if="!todoList.isDeleteTodo() && !todoList.isEditTodo()">Add</h2>
+                        <h2 class="modal-title" id="formModalLabel" ng-if="!todoList.isDeleteTodo() && todoList.isEditTodo()">Edit</h2>
+                        <h2 class="modal-title" id="formModalLabel" ng-if="todoList.isDeleteTodo()">Delete?</h2>
+                    </div>
+                    <div class="modal-body">
+                        <div ng-hide="todoList.isDeleteTodo()">
+                            <form>
+                                <div class="form-group">
+                                    <input type="text" class="text-type" id="recipient-name" placeholder="Name" 
+                                    ng-model="todoList.todoName">
+                                    <span ng-show="todoList.emptyName"> Name can not be empty </span>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="text-type" id="recipient-name" placeholder="Description" 
+                                    ng-model="todoList.todoDescription">
+                                    <span ng-show="todoList.emptyDescription"> Description can not be empty </span>
+                                </div>
+                            </form>
+                        </div>
+                        <div ng-show="todoList.isDeleteTodo()">
+                            Do you Confirm?
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="button-grey button-smart" ng-show="!todoList.isDeleteTodo() && !todoList.isEditTodo()"
+                         ng-click="todoList.addTodo()" >ADD</button>
+                        <button type="button" class="button-grey button-smart" ng-show="!todoList.isDeleteTodo() && todoList.isEditTodo()"
+                        ng-click="todoList.editTodo()" >EDIT</button>
+                        <button type="button" class="button-aqua button-smart" ng-show="!todoList.isDeleteTodo()"
+                        data-dismiss="modal">CANCEL</button>
+
+                        <button type="button" class="button-grey button-smart" ng-click="todoList.delete()" data-dismiss="modal"
+                        ng-show="todoList.isDeleteTodo()" >YES</button>
+                        <button type="button" class="button-aqua button-smart" data-dismiss="modal"
+                        ng-show="todoList.isDeleteTodo()" >NO</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

@@ -1,0 +1,269 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    margin: 0 0 40px;
+}
+
+.page-footer {
+    position: absolute;
+    bottom: 0px;
+    width: 83%;
+    height: 40px;
+}
+
+input[type="text"] { 
+	width: 100%;
+	padding: 5px 0px;
+}
+
+.table{
+	margin-bottom: 10px;
+}
+
+/* DeskTop */
+@media screen and (min-width: 900px) {
+	.modal-dialog {
+		width: 30%;
+	}
+
+	.modal-content {   
+		height: 100%;
+		border-radius: 0;
+		overflow:auto;
+	}
+
+	button {
+		display: inline-block;
+		width:120px;
+		height:35px;
+		line-height:30px;
+		vertical-align:middle;
+		list-style:none;
+		margin:0 auto;
+	}
+
+	.head-left, .head-right {
+		width: 50%;
+		margin: 15px 0px 5px;
+		vertical-align: middle;
+	}
+
+	.body-smart{
+		display: none;
+	}
+	.body-desk{
+		display: block;
+	}
+	.img-footer{
+		text-align: right;
+	}
+	.head-right{
+		text-align: right;
+		display: block;
+		float: right;
+	}
+}
+
+/* Tablet */
+@media screen and (min-width: 480px) and (max-width: 900px) {
+	.modal-dialog {
+		width: 50%;
+	}
+
+	.modal-content {   
+		height: 100%;
+		border-radius: 0;
+		overflow:auto;
+	}
+
+	button {
+		display: inline-block;
+		width:120px;
+		line-height:30px;
+		vertical-align:middle;
+		list-style:none;
+		margin:0 auto;
+	}
+
+	.head-left, .head-right {
+		width: 50%;
+		margin: 15px 0px 5px;
+		vertical-align: middle;
+	}
+
+	.body-smart{
+		display: none;
+	}
+	.body-desk{
+		display: block;
+	}
+	.img-footer{
+		text-align: right;
+	}
+	.head-right{
+		text-align: right;
+		display: block;
+		float: right;
+	}
+	
+}
+
+/* Smartphone */
+@media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
+
+	.modal-dialog {
+		width: 90%;
+	}
+
+	.modal-content {   
+		height: 100%;
+		border-radius: 0;
+		overflow:auto;
+	}
+
+	.button-smart{
+		width: 100%;
+		height:35px;
+		margin-bottom: 5px;
+	}
+
+	.head-left, .head-right {
+		width: 100%;
+	}
+	.head-left{
+		margin-bottom: 10px;
+
+	}
+
+	.centro {
+		vertical-align: middle;
+		text-align: center;
+		padding: 10px;
+	}
+
+	img#logos2{
+		width: 40%;
+		height: 40%;
+	}
+
+	input[type="text"] { 
+		padding: 10px 0px;
+	}
+	
+
+	.table-right{
+		width: 60%;
+		height: 120px;
+		float: right;
+		margin-bottom: 10px;
+	}
+
+	.table-left{
+		width: 40%;
+		height: 120px;
+		float: left;
+		margin-bottom: 10px;
+		font-weight: bold;
+	}
+
+	.row-padding{
+		height: 30px;
+		padding: 5px;
+	}
+
+	.body-smart{
+		display:inline;
+	}
+
+	.body-desk{
+		display: none;
+	}
+
+	.img-footer{
+		text-align: center;
+	}
+
+	.head-right{
+		display: none;
+		float: right;
+		text-align: center;
+	}
+
+	.total-list{
+		margin-bottom: 5px;
+		font-weight: bold;
+	}
+}
+
+button {
+	border: none;
+	color: #FFFFFF;
+}
+
+hr{
+	background-color: #0066FF;
+	height: 2px; 
+	padding: 0px;
+	margin: 0px;
+}
+
+input[type="text"] { 
+	width: 100%;
+	border: none; 
+	border-bottom: 1px solid #848484;
+}
+
+.head-blue{
+	background-color: #5882FA;
+	color: #fff;
+}
+
+.footer-grey{
+	background-color: #848484;
+	margin-right: 20%;
+	font-weight: bold;
+}
+
+.head-left{
+	float: left;
+}
+.glyphicon{
+	color: #0066ff;
+}
+
+.button-aqua{
+	background: #00FFFF; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#00FFFF, #088A85); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#00FFFF, #088A85); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#00FFFF, #088A85); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#00FFFF, #088A85); /* Standard syntax */
+}
+.button-grey{
+	background: #6E6E6E; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#BDBDBD, #6E6E6E); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#BDBDBD, #6E6E6E); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#BDBDBD, #6E6E6E); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#BDBDBD, #6E6E6E); /* Standard syntax */
+}
+.modal-footer{
+	border: none;
+}
+
+.text-type{
+	width: 100%;
+}
+.row-table:nth-of-type(even) {
+    background: #BDBDBD;
+}
+
+.icon-image{
+	height: 32px;
+	width: 32px;
+}
+
+.no-search{
+	text-align: center;
+	font-weight: bold;
+}
