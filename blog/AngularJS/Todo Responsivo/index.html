@@ -61,7 +61,7 @@
                 <br/>
             </div>
             <div class="body-desk"> 
-                <table class="table table-striped">
+                <table class="table">
                     <thead>
                         <tr class="head-blue">
                             <th>Done?</th>
@@ -71,7 +71,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="todo in todoFiltred = (todoList.todos | filter:search)">
+                        <tr class="row-table" ng-repeat="todo in todoFiltred = (todoList.todos | filter:search)">
                             <td><input type="checkbox" ng-model="todo.done"></td>
                             <td>{{todo.name}}</td>
                             <td>{{todo.description}}</td>
@@ -127,12 +127,12 @@
                                 <div class="form-group">
                                     <input type="text" class="text-type" id="recipient-name" placeholder="Name" 
                                     ng-model="todoList.todoName">
-                                    <span ng-show="todoList.emptyName"> Name can not be empty </span>
+                                    <span class="span-message" ng-show="todoList.emptyName"> Name can not be empty </span>
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="text-type" id="recipient-name" placeholder="Description" 
                                     ng-model="todoList.todoDescription">
-                                    <span ng-show="todoList.emptyDescription"> Description can not be empty </span>
+                                    <span class="span-message" ng-show="todoList.emptyDescription"> Description can not be empty </span>
                                 </div>
                             </form>
                         </div>

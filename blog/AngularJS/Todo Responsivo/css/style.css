@@ -224,7 +224,7 @@ input[type="text"] {
 }
 
 .footer-grey{
-	background-color: #848484;
+	background-color: #BDBDBD;
 	margin-right: 20%;
 	font-weight: bold;
 }
@@ -258,7 +258,7 @@ input[type="text"] {
 	width: 100%;
 }
 .row-table:nth-of-type(even) {
-    background: #BDBDBD;
+    background: #e6e6e6;
 }
 
 .icon-image{
@@ -269,4 +269,8 @@ input[type="text"] {
 .no-search{
 	text-align: center;
 	font-weight: bold;
+}
+
+.span-message{
+	color: #F08080;
 }
