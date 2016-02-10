@@ -1,0 +1,21 @@
+{
+    "name": "contatooh",
+    "version": "0.0.0",
+    "authors": [
+        "Bognar Junior <bognar_junior@yahoo.com.br>"
+    ],
+    "license": "MIT",
+    "private": true,
+    "description": "",
+    "main": "index.js",
+    "license": "ISC",
+    "moduleType": [],
+    "homepage": "",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ]
+}
