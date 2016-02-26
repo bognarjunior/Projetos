@@ -6,12 +6,11 @@
 	<title></title>
 	<link rel="stylesheet" href="">
 </head>
-<body ng-controller="ContatosController">
-	<h1>Bem-vindo ao Contatooh</h1>
-	<button>Novo</button>
-	<p>Contatos Cadastrados: {{total}}</p>
+<body>
+	<div ng-view></div>
 </body>
 <script src="vendor/angular/angular.js"></script>
+<script src="vendor/angular-route/angular-route.js"></script>
 <script src="js/main.js"></script>
 <script src="js/controllers/ContatosController.js"></script>
 </html>

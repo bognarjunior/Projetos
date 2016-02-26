@@ -3,9 +3,16 @@
 *
 * Description
 */
-angular.module('contatooh', []); 
-/*
-.controller('ContatosController',['$scope', function($scope) {
-		$scope.total = 10;
-}]);
-*/
+angular.module('contatooh', ['ngRoute'])
+
+.config(function($routeProvider) {
+	$routeProvider.when('/contatos', {
+		templateUrl: 'partials/contatos.html',
+		controller: 'ContatosController'
+	});
+	
+	$routeProvider.when('/contato/:contatoId', {
+		templateUrl: 'partials/contato.html',
+		controller: 'ContatoController'
+	});
+});
