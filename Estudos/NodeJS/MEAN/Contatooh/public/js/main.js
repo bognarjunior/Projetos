@@ -3,7 +3,7 @@
 *
 * Description
 */
-angular.module('contatooh', ['ngRoute'])
+angular.module('contatooh', ['ngRoute','ngResource'])
 
 .config(function($routeProvider) {
 
