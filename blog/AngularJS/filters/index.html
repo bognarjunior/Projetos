@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AngularJS - Filtros</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+</head>
+
+<body>
+    <div ng-app="app" ng-controller="Controller">
+        <p>Usando UpperCase: {{ pessoa.nome | uppercase }}</p>
+        <p>Usando LowerCase: {{ pessoa.nome | lowercase }}</p>
+        <p>Usando Date: {{ pessoa.data | date }}</p>
+        <p>Usando Date com formato: {{ pessoa.data | date:'dd/MM/yyyy'  }}</p>
+        <p>Usando Currency: {{ pessoa.salario | currency  }}</p>
+
+        <p>Usando o Filter:</p>
+        <p><input type="text" ng-model="filtro"></p>
+        <ul>
+            <li ng-repeat="x in nomes | filter:filtro">
+                {{ x }}
+            </li>
+        </ul>
+
+        <table border="1" width="100%">
+            <tr>
+                <th ng-click="ordenacao('nome')">Nome</th>
+                <th ng-click="ordenacao('idade')">Idade</th>
+            </tr>
+            <tr ng-repeat="x in pessoas | orderBy : ordenado">
+                <td>{{x.nome}}</td>
+                <td>{{x.idade}}</td>
+            </tr>
+        </table>
+
+        <pre>{{ pessoa | json }}</pre>
+        <pre>{{ pessoas | json:4 }}</pre>
+
+        <label>
+            Limite {{letras}} to:
+            <input type="text" step="1" ng-model="letrasLimit">
+        </label>
+        <p>Output letras: {{ letras | limitTo:letrasLimit }}</p>
+    </div>
+</body>
+<script>
+    angular.module('app', []).controller('Controller', function($scope) {
+        $scope.pessoa = {
+            nome:"Bognar Junior",
+            data:"1983-09-22T00:00",
+            salario: 1000
+        }
+        $scope.nomes = ['José', 'Roberto', 'Bognar', 'Junior'];
+
+        $scope.pessoas = [
+            {nome:'João',idade:'23'},
+            {nome:'Aline',idade:'43'},
+            {nome:'Mariana',idade:'25'},
+            {nome:'Tatiana',idade:'16'},
+            {nome:'Carlos',idade:'56'},
+            {nome:'Zumira',idade:'32'}
+        ];
+        $scope.ordenacao = function(x) {
+            $scope.ordenado = x;
+        };
+
+        $scope.letras = "abcdefghijklmnopqrstuvxyz";
+        $scope.letrasLimit = 3;
+    });
+</script>
+</html>
