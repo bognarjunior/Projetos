@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>JavaScritp - Prototype</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" charset="utf-8" async defer>
+	String.prototype.soletrar = function(){
+		console.log( this.toLocaleUpperCase().split("").join("-"));
+	}
+	"programador".soletrar();
+
+	function Documento (t) {
+		this.texto = t;
+	}
+	Documento.prototype.print = function () {
+		console.log(this.texto);
+	}
+	var newObj = new Documento ("Eu sou um novo objeto de Documento e farei uma impressão");
+	newObj.print ();
+
+	var myObj = new Object ();
+	console.log(myObj.constructor);
+
+	function Account () {
+	}
+ 	var userAccount = new Account ();
+	console.log(userAccount.constructor);
+
+	function Planta () {
+		this.pais = "Brasil";
+		this.isOrganico = true;
+	}
+	Planta.prototype.showNomeCor =  function () {
+		console.log("Eu sou " + this.nome + " e minha cor é " + this.cor);
+	}
+	Planta.prototype.ehOrganico = function () {
+		if (this.isOrganico)
+			console.log("Eu sou Organico!");
+	}
+	function Fruta (nome, cor) {
+		this.nome = nome;
+		this.cor = cor;
+	}
+	Fruta.prototype = new Planta();
+	var aBanana = new Fruta ("Banana", "Amarela");
+	console.log(aBanana.nome);
+	aBanana.showNomeCor();
+	aBanana.ehOrganico();
+	
+</script>
+</html>
