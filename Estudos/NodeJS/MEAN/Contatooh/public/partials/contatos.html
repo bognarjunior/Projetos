@@ -8,7 +8,12 @@
 	Novo
 </button>
 <input type="search" placeholder="nome" ng-model="filtro">
-<p>Contatos cadastrados: {{contatos.length}}</p>
+<p ng-show="contatos.length">
+	Contatos cadastrados: {{contatos.length}}
+</p>
+<p class="text-info" ng-hide="contatos.length">
+	Não há contatos cadastrados
+</p>
 <div class="table-responsive">
 <table class="table table-hover">
 	<tr>

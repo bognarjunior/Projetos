@@ -1,0 +1,20 @@
+#container{
+	width: 650px;
+	height: 450px;
+	margin:0 auto; 
+	padding: 10px;        
+	text-align:left; /* "remédio" para o hack do IE */ 	
+	box-shadow: 0px 0px 10px rgba(0,0,0,0.8);
+}
+
+#canvas{
+	background-color: #FFFFFF;
+	margin : 0px;
+	padding: 0px;
+	border: 2px solid #000000;
+}
+#divCanvas{
+	float: left;
+	text-align: center;
+	margin: 20px;
+}
