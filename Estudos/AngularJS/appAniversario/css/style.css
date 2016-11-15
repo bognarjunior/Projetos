@@ -1,0 +1,12 @@
+.container {
+	margin-top: 3%;
+ 	margin-right: auto;
+	margin-left: auto;
+	background-color: #f9f9f9;
+	width: 50%;
+	height: 100%;
+	text-align: center;
+}
+.itens-form{
+	margin-bottom: 5px;
+}
