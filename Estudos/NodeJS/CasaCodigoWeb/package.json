@@ -1,0 +1,28 @@
+{
+  "name": "casadocodigo",
+  "version": "1.0.0",
+  "description": "App de estudo casa do código",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bognar",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "ejs": "^2.5.2",
+    "express": "^4.14.0",
+    "express-load": "^1.1.15",
+    "express-validator": "^2.21.0",
+    "mysql": "^2.11.1",
+    "socket.io": "^1.5.1"
+  },
+  "devDependencies": {
+    "mocha": "^3.1.2",
+    "supertest": "^2.0.1"
+  }, 
+  "scripts" : {
+    "test" : "Nenhum teste definido",
+    "start": "node app"
+  }
+}
