@@ -11,7 +11,7 @@ var transporter = nodemailer.createTransport({
     }
 });
 
-var $destinatario = 'bognar_junior@yahoo.com.br';
+var $destinatario = 'Qualquer email';
 
 var mailOptions = {
     from: $usuario,
