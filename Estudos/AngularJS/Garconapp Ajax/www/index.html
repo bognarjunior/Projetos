@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Só de Cenoura Garçom</title>
+    <link rel="stylesheet" href="icons/material.css">
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <div class="topo-fixo z-depth-1">
+        <div class="valign-wrapper yellow darken-4 white-text">
+            <h5 class="titulo">Só de Cenoura</h5>
+
+            <div>
+                <i class="material-icons waves-effect waves-light waves-circle scan-qrcode">camera</i>
+
+                <i class="material-icons waves-effect waves-light
+                          waves-circle dropdown-button"
+                    data-activates="submenu" data-gutter="5"
+                    data-constrainwidth="false">
+                        more_vert
+                </i>
+
+                <ul id="submenu" class="dropdown-content">
+                  <li><a class="black-text acao-limpar">Limpar</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <ul class="tabs yellow darken-4">
+            <li class="tab">
+                <a href="#bolos"
+                   class="white-text waves-effect waves-light">
+                    Bolos
+                </a>
+            </li>
+            <li class="tab">
+                <a href="#bebidas"
+                   class="white-text waves-effect waves-light">
+                    Bebidas
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="bolos" class="section">
+        <h6 class="container brown-text">Fatia</h6>
+        <div class="collection">
+            <a class="collection-item waves-effect black-text">Só de Cenoura</a>
+            <a class="collection-item waves-effect black-text">Com Nutella</a>
+            <a class="collection-item waves-effect black-text">De Brigadeiro</a>
+            <a class="collection-item waves-effect black-text">Açucarado</a>
+        </div>
+
+        <h6 class="container brown-text">Inteiro</h6>
+        <div class="collection">
+            <a class="collection-item waves-effect black-text">Só de Cenoura inteiro</a>
+            <a class="collection-item waves-effect black-text">Com Nutella inteiro</a>
+            <a class="collection-item waves-effect black-text">De Brigadeiro inteiro</a>
+            <a class="collection-item waves-effect black-text">Açucarado inteiro</a>
+        </div>
+    </div>
+
+    <div id="bebidas" class="section">
+        <h6 class="container brown-text">Cafés</h6>
+        <div class="collection">
+            <a class="collection-item waves-effect black-text">Espresso</a>
+            <a class="collection-item waves-effect black-text">Capuccino</a>
+            <a class="collection-item waves-effect black-text">Mocachino</a>
+        </div>
+
+        <h6 class="container brown-text">Refrigerantes</h6>
+        <div class="collection">
+            <a class="collection-item waves-effect black-text">Soda</a>
+            <a class="collection-item waves-effect black-text">Guaraná</a>
+            <a class="collection-item waves-effect black-text">Coca</a>
+        </div>
+
+        <h6 class="container brown-text">Sucos</h6>
+        <div class="collection">
+            <a class="collection-item waves-effect black-text">Melancia</a>
+            <a class="collection-item waves-effect black-text">Tangerina</a>
+            <a class="collection-item waves-effect black-text">Limão</a>
+        </div>
+    </div>
+
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large waves-effect waves-light brown modal-trigger"
+           href="#confirmacao" id="confirmar">
+            <i class="material-icons">done</i>
+        </a>
+    </div>
+
+    <div id="confirmacao" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <h5>Resumo do pedido</h5>
+            <input id="numero-mesa" type="number" class="validate" placeholder="Número da mesa">
+            <blockquote id="resumo"></blockquote>
+        </div>
+        <div class="modal-footer">
+            <button class="btn deep-orange waves-effect waves-light modal-close acao-finalizar">
+                Pedir
+            </button>
+            <button class="btn-flat waves-effect waves-red modal-close acao-limpar">
+                Cancelar
+            </button>
+        </div>
+    </div>
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script src="cordova.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
