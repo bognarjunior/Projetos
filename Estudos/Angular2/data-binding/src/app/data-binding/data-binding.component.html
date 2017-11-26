@@ -1,0 +1,90 @@
+<section class="property-binding">
+    <article>
+        <h3>Interpolação</h3>
+        <p>String renderizada com interpolação: {{ url }}</p>
+        <p>Resultado de 1 + 1 é: {{ 1 + 1 }}</p>
+        <p>O resultado de 1 + 1 não é: {{ 1 + 1 + getValor()}}</p>
+        <p>Curso de Angular e gosto do curso: {{ cursoAngular && getCurtirCurso() }}</p>
+    </article>
+
+    <article>
+        <h3>Property Binding</h3>
+        <img src="{{ urlImage }}">
+        <img [src]="urlImage">
+        <img bind-src="urlImage">
+    </article>
+
+    <article>
+        <h3>Class and Style Binding</h3>
+        <div>
+            Selecione uma classe:
+            <select #classe (change)="0">
+                <option value="alert-success">Sucesso</option>
+                <option value="alert-info">Info</option>
+                <option value="alert-warning">Alerta</option>
+                <option value="alert-danger">Erro</option>
+            </select>
+            <br><br>
+            <div class="alert {{ classe.value }}" role="alert">
+                Texto colorido conforme o combobox
+            </div>
+            <br><br>
+            <div class="alert alert-danger" role="alert"
+            [style.display]="classe.value == 'alert-danger' ? 'block' : 'none'">
+                Só aparece quando for erro
+            </div>
+            <br><br>
+            <div class="alert" role="alert" 
+            [class.alert-success]="classe.value == 'alert-success'">
+                This is a success alert—check it out!
+            </div>
+            <div class="alert" role="alert"
+            [class.alert-danger]="classe.value == 'alert-danger'">
+                This is a danger alert—check it out!
+            </div>
+            <div class="alert" role="alert"
+            [class.alert-warning]="classe.value == 'alert-warning'">
+                This is a warning alert—check it out!
+            </div>
+            <div class="alert" role="alert"
+            [class.alert-info]="classe.value == 'alert-info'">
+                This is a info alert—check it out!
+            </div>
+            
+        </div>
+    </article>
+</section>
+
+<section class="event-binding">
+    <article>
+        <h3> Event Binding </h3>
+        <div>
+            <button class="btn btn-primary"
+            (click)="botaoClicado()"> Click </button>
+            <br><br>
+            <input type="text"
+            (keyup)="onKeyUp($event)"
+            (keyup.enter)="salvarValor(campoInput.value)"
+            (blur)="salvarValor(campoInput.value)"
+            #campoInput>
+
+            <p>Valor Atual: {{valorAtual}}</p>
+            <p>Valor Salvo: {{valorSalvo}}</p>
+
+            <br>
+
+            <span
+            (mouseover)="onMouseOverOut()"
+            (mouseout)="onMouseOverOut()"
+            [class.highlight]="isMouseOver">
+                Passe o mouse sobre mim
+            </span>
+        </div>
+    </article>
+</section>
+
+<app-meu-form></app-meu-form>
+<br>
+<footer>
+
+</footer>
