@@ -1,0 +1,12 @@
+ul li{
+    padding: 5px;
+    font-size: 20px;
+}
+
+.item-red{
+    font-weight: bold;
+}
+
+.item-green{
+    font-style: italic;
+}

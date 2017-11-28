@@ -1,0 +1,13 @@
+<br>
+<label for="nome">Nome: </label>
+<input type="text" [(ngModel)]="task.name" id="nome">
+<br>
+<label for="valor">Valor: </label>
+<input type="text"[(ngModel)]="task.value" id="valor">
+<br>
+<label for="date">Data: </label>
+<input type="text" [(ngModel)]="task.date_launch" id="date">
+<br>
+<button type="button" (click)="addTask()">
+    Adicionar
+</button>
