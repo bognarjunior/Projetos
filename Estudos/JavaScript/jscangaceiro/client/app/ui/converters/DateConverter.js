@@ -5,6 +5,7 @@ class DateConverter {
     }
 
     static paraTexto(data) {
+        console.log(data);
         return `${data.getDate()}/${data.getMonth() + 1}/${data.getFullYear()}`;
     }
 
