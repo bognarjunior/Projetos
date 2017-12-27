@@ -54,19 +54,24 @@ class NegociacaoController {
     }
 
     importaNegociacoes() {
-
-        this._service.obterNegociacoesDaSemana((err, negociacoes) => {
-
-            if (err) {
-                this._mensagem.texto = 'Não foi possível obter nas negociações da semana';
-                return;
-            }
-
-            negociacoes.forEach(negociacao =>
-                this._negociacoes.adiciona(negociacao));
-
-            this._mensagem.texto = 'Negociações importadas com sucesso';
-        });
+      
+        this._service
+            .obterNegociacoesDoPeriodo()
+            .then(
+                negociacoes => {
+                    negociacoes
+                        .filter(novaNegociacao =>
+                            !this._negociacoes
+                                .paraArray()
+                                .some(negociacaoExistente => 
+                                    novaNegociacao.equals(negociacaoExistente)
+                                )
+                        )
+                        .forEach(negociacao => this._negociacoes.adiciona(negociacao));
+                    this._mensagem.texto = 'Negociações do período importadas com sucesso!';
+                }
+            )
+            .catch( err => this._mensagem.texto = err );
     }
 
     _limparFormulario() {
