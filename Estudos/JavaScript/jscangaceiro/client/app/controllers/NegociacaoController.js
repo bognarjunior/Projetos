@@ -21,6 +21,17 @@ class NegociacaoController {
         );
 
         this._service = new NegociacaoService();
+
+        this._init();
+    }
+
+    _init() {
+        getNegociacaoDao()
+        .then(dao => dao.listaTodos())
+        .then(negociacoes => 
+            negociacoes.forEach(negociacao => 
+                this._negociacoes.adiciona(negociacao)))
+        .catch(err => this._mensagem.texto = err);
     }
 
     _criaNegociacao() {
@@ -35,9 +46,17 @@ class NegociacaoController {
     adiciona(event) {
         try{
             event.preventDefault();
-            this._negociacoes.adiciona(this._criaNegociacao());
-            this._mensagem.texto = 'Negociação adicionada com sucesso';
-            this._limparFormulario();
+            const negociacao = this._criaNegociacao();
+
+            getNegociacaoDao()
+            .then(dao => dao.adiciona(negociacao))
+            .then(() => {
+                this._negociacoes.adiciona(negociacao);
+                this._mensagem.texto = 'Negociação adicionada com sucesso';
+                this._limparFormulario();
+            })
+            .catch(err => this._mensagem.texto = err);
+            
         } catch(err) {
             if(err instanceof DataInvalidaException) {
                 this._mensagem.texto = err.message;
@@ -49,8 +68,14 @@ class NegociacaoController {
     }
 
     apaga() {
-        this._negociacoes.esvazia();
-        this._mensagem.texto = 'Negociações apagadas com sucesso';
+
+        getNegociacaoDao()
+        .then(dao => dao.apagaTodos())
+        .then(() => {
+            this._negociacoes.esvazia();
+            this._mensagem.texto = 'Negociações apagadas com sucesso';
+        })
+        .catch(err => this._mensagem.texto = err);
     }
 
     importaNegociacoes() {
