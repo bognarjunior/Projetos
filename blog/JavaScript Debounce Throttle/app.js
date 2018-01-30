@@ -41,7 +41,7 @@ const throttle = (fn, delay) => {
                     fn.apply(context, args);
                     last = Date.now();
                 }
-            }, delay - (Date.now() - last))
+            }, delay - (Date.now() - last));
         }
     }
 }
