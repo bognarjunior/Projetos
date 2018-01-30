@@ -35,7 +35,7 @@ const throttle = (fn, delay) => {
             last = Date.now();
             isThrottle = true;
         } else {
-            clearTimeout(timer)
+            clearTimeout(timer);
             timer = setTimeout(function() {
                 if ((Date.now() - last) >= delay) {
                     fn.apply(context, args)
