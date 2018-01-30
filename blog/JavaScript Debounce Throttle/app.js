@@ -14,9 +14,9 @@ function addEvent() {
 const debounce = (fn, delay) => {
     let timer;
     return function() {
-        const self = this
-        const args = arguments
-        clearTimeout(timer)
+        const self = this;
+        const args = arguments;
+        clearTimeout(timer);
         timer = setTimeout(() => fn.apply(self, args), delay)
     }
 }
@@ -38,8 +38,8 @@ const throttle = (fn, delay) => {
             clearTimeout(timer);
             timer = setTimeout(function() {
                 if ((Date.now() - last) >= delay) {
-                    fn.apply(context, args)
-                    last = Date.now()
+                    fn.apply(context, args);
+                    last = Date.now();
                 }
             }, delay - (Date.now() - last))
         }
