@@ -4,19 +4,23 @@ System.register([], function (_export, _context) {
     return {
         setters: [],
         execute: function () {
-            class Mensagem {
+            let Mensagem = class Mensagem {
+
                 constructor(texto = '') {
+
                     this._texto = texto;
                 }
 
                 get texto() {
+
                     return this._texto;
                 }
 
                 set texto(texto) {
+
                     this._texto = texto;
                 }
-            }
+            };
 
             _export('Mensagem', Mensagem);
         }

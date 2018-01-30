@@ -11,6 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "reflect-metadata": "^0.1.10",
     "systemjs": "^0.20.12"
   },
   "devDependencies": {

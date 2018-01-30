@@ -1,46 +1,48 @@
-System.register([], function (_export, _context) {
+System.register(['../../util/index.js'], function (_export, _context) {
     "use strict";
 
+    var obrigatorio;
     return {
-        setters: [],
+        setters: [function (_utilIndexJs) {
+            obrigatorio = _utilIndexJs.obrigatorio;
+        }],
         execute: function () {
-            class Negociacao {
+            let Negociacao = class Negociacao {
 
-                constructor(_data, _quantidade, _valor) {
+                constructor(_data = obrigatorio('data'), _quantidade = obrigatorio('quantidade'), _valor = obrigatorio('valor')) {
 
-                    Object.assign(this, {
-                        _quantidade,
-                        _valor
-                    });
-
+                    Object.assign(this, { _quantidade, _valor });
                     this._data = new Date(_data.getTime());
-
-                    //Congela o objeto
                     Object.freeze(this);
                 }
 
                 get volume() {
+
                     return this._quantidade * this._valor;
                 }
 
                 get data() {
+
                     return new Date(this._data.getTime());
                 }
 
                 get quantidade() {
+
                     return this._quantidade;
                 }
 
                 get valor() {
+
                     return this._valor;
                 }
 
                 equals(negociacao) {
+
                     return JSON.stringify(this) == JSON.stringify(negociacao);
                 }
-            }
+            };
 
-            _export("Negociacao", Negociacao);
+            _export('Negociacao', Negociacao);
         }
     };
 });
