@@ -26,3 +26,11 @@ let teste = [
 ];
 
 teste.map(item => console.log(item));
+
+function f(x, y, z) {  
+    return x + y + z;  
+}  
+  
+var args = [3, 2, 3];  
+  
+console.log( f(...args) );
