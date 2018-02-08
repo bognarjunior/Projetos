@@ -3,6 +3,7 @@
         "es2017"
     ],
     "plugins" : [
-        "transform-decorators-legacy"
+        "transform-decorators-legacy",
+        "babel-plugin-syntax-dynamic-import"
     ]
 }
