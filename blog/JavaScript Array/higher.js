@@ -6,14 +6,17 @@ const getProperties = properties => obj => properties.reduce((get, item) => {
     return get;
 }, {});
 
-const older = property =>  (bigger, obj) => bigger = 
+const older = property =>  (bigger, obj) =>  bigger = 
         (bigger.hasOwnProperty(property)) ? 
-        (parseInt(obj.property) > parseInt(bigger.property)) ? 
+        (parseInt(obj[property]) > parseInt(bigger[property])) ? 
         obj : bigger : obj;
 
 const getNameAge = getProperties(['name', 'age']);
 const teamCorinthians = equals('team')('Corinthians');
 
-const person = people.filter(teamCorinthians).map(getNameAge).reduce(older('age'), {});
+const person = people
+            .filter(teamCorinthians)
+            .map(getNameAge) 
+            .reduce(older('age'), {});
 
 console.log(person);
