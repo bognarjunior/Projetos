@@ -1,7 +1,7 @@
-var gulp = require('gulp');
-var concat = require('gulp-concat');
-var rename = require('gulp-rename');
-var reactEasy = require('gulp-react-easy');
+const gulp = require('gulp');
+const concat = require('gulp-concat');
+const rename = require('gulp-rename');
+const reactEasy = require('gulp-react-easy');
 
 gulp.task('default',['js','w']);
 
