@@ -21,7 +21,7 @@
 
     $dados = [
         [
-            'titulo'=>"Notícia 1", 
+            'titulo'=>"Cartão 1", 
             'descricao'=>"Descrição do cartão 1", 
             'detalhe'=>"Texto de detalhe do cartão 1", 
             'imagem'=>"http://materializecss.com/images/office.jpg", 
