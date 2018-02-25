@@ -8,7 +8,7 @@ let pE = new Promise((resolve, reject) => time('E', 1000, resolve));
 
 Promise.race([ pA, pB, pC, pD, pE])
     .then(result => {
-        console.log('Resultado da promise.race', result);
+        console.log('Resultado da promise.race: ', result);
     })
     .catch( err => {
         console.warn('Failed: ', err);

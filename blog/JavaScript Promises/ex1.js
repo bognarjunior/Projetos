@@ -1,3 +1,4 @@
+//let promise = new Promise( (resolve, reject) => reject(1));
 let promise = new Promise( (resolve, reject) => resolve(1));
 
 promise.then(val =>  {
